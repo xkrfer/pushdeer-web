@@ -10,6 +10,12 @@ export default defineConfig({
         }
     },
     server: {
-        port: 8800
+        port: 8801,
+        proxy: {
+            '/appid': {
+                target: 'http://localhost:8800',
+                changeOrigin: true
+            },
+        }
     }
 })
