@@ -21,7 +21,7 @@ const {origin} = window.location
 const github_client_id = ref()
 const OAuthToGithub = () => {
   if (github_client_id.value) {
-    window.location.href = `https://github.com/login/oauth/authorize?client_id=${github_client_id.value}&redirect_uri=${origin}/oauth/redirect/github`
+    window.location.href = `https://github.com/login/oauth/authorize?client_id=${github_client_id.value}&redirect_uri=${origin}/login/github`
   }
 }
 
