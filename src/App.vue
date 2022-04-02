@@ -33,8 +33,21 @@ const fetchAppId = async () => {
   }
 }
 
+
+const getCookie = () => {
+  const token = Cookies.get("token")
+  const customEvent = new CustomEvent('__PUSH_DEER_TOKEN__', {
+    detail: {
+      token
+    }
+  })
+  document?.dispatchEvent(customEvent)
+}
+
+
 onMounted(() => {
   fetchAppId()
+  getCookie()
 })
 
 </script>
