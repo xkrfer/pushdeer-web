@@ -35,12 +35,7 @@ const fetchAppId = async () => {
 
 
 const getCookie = () => {
-  const token = Cookies.get("token")
-  const customEvent = new CustomEvent('__PUSH_DEER_TOKEN__', {
-    detail: {
-      token
-    }
-  })
+  const customEvent = new CustomEvent('__PUSH_DEER_TOKEN__')
   document?.dispatchEvent(customEvent)
 }
 
