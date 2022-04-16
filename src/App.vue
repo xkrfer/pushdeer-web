@@ -11,7 +11,6 @@
   </div>
 </template>
 
-
 <script setup lang="ts">
 // @ts-ignore
 import Cookies from 'js-cookie'
@@ -33,7 +32,6 @@ const fetchAppId = async () => {
   }
 }
 
-
 const getCookie = () => {
   const token = Cookies.get("token")
   const customEvent = new CustomEvent('__PUSH_DEER_TOKEN__', {
@@ -42,7 +40,7 @@ const getCookie = () => {
     }
   })
   document?.dispatchEvent(customEvent)
-  Cookies.remove('token')
+  // Cookies.remove('token')
 }
 
 
