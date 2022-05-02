@@ -1,0 +1,27 @@
+# docker-image.yml
+name: release extension
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  push_replease:
+    name: Push release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build
+          mkdir build
+          mv dist build/dist
+      - name: Release
+        uses: fnkr/github-action-ghr@v1
+        env:
+          GHR_COMPRESS: zip
+          GHR_PATH: build/
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
